@@ -1,0 +1,45 @@
+body {
+    overflow: hidden;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #696969, #272727);
+  }
+  
+  .video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    padding-bottom: 5em;
+    overflow: hidden; /* Add overflow: hidden to hide any overflowing content */
+  }
+  
+  .video-media {
+    width: 100%; /* Set width to 100% to occupy the full width of the container */
+    height: 100%; /* Set height to 100% to occupy the full height of the container */
+    border: none;
+    padding-bottom: 10vh;
+  }
+
+  @media screen and (max-width: 767px), screen and (max-height: 767px){
+    body {
+        /* position: absolute; */
+    }
+    .video-container {
+        width: 100%;
+    }
+  }
+  /* @media screen and (max-height: 767px){
+    body {
+        position: absolute;
+    }
+    .video-container {
+        width: 50%;
+    }
+  } */

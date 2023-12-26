@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>Contact Form</h2>
+
+    <form action="https://formsubmit.co/f0dec8379762f122dcb1d428a93a68c0" method="post"
+        onsubmit="return validateEmail()">
+        <label for="fname">Name:</label><br>
+        <input type="text" id="fname" name="fname" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="email_confirm">Confirm Email:</label><br>
+        <input type="email" id="email_confirm" name="email_confirm" required><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <input type="hidden" id="ip_address" name="ip_address"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var email_confirm = document.getElementById("email_confirm").value;
+
+            if (email !== email_confirm) {
+                alert('Emails do not match.');
+                return false; // prevent form from submitting
+            }
+            return true; // allow form to be submitted
+        }
+
+        let ipAddress;
+        fetch('https://api.ipify.org/?format=json')
+            .then(response => {
+                return response.json();
+            })
+            .then(result => {
+                ipAddress = result.ip;
+                document.getElementById('ip_address').value = ipAddress;
+            })
+            .catch(error => {
+                console.error('Error in promise');
+            })
+            .finally(() => {
+                console.log('Done')
+            })
+
+
+
+
+    </script>
+
+</body>
+
+</html>

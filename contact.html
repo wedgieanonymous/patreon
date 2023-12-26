@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="./contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/565077c2d0.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <container id="nav-bar">
+        <script>
+            $(function () {
+                $("#nav-bar").load("navbar.html");
+            })
+        </script>
+    </container>
+
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>Contact</h3>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="message" rows="4" placeholder="Send in your wedgie video link or ask for help."></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div class="spacer"></div>
+    <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        let ipAddress; // Declare it outside the fetch function
+
+        fetch('https://api.ipify.org?format=json')
+          .then(response => response.json())
+          .then(data => {
+          ipAddress = data.ip; // Assign the value here
+          console.log('Your IP Address is:', ipAddress);
+        })
+        .catch(error => {
+         console.error('There was an error fetching the IP address:', error);
+        });
+    </script>
+    <script>
+        function sendEmail() {
+            Email.send({
+            Username: 'wedgieanonofficial@gmail.com',
+            Password: '112F0F09F893A8D1DADC93663058C452AB10',
+            Host : "smtp.elasticemail.com",
+            To : 'wedgieanonofficial@gmail.com',
+            From : 'wedgieanonofficial@gmail.com',
+            ReplyFrom : document.getElementById("email").value,
+            Subject : "New Contact Form Inquiry",
+            Body : "Name: " + document.getElementById("name").value + " Email: " + document.getElementById("email").value + "\n" + document.getElementById("message").value + " " + ipAddress
+        }).then(
+        message => alert(message)
+        );
+        }
+    </script>
+</body>
+</html>

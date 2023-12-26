@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/565077c2d0.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="logo">Wedgie Anonymous</div>
+        <ul class="nav-list">
+            <li class="nav-item"><a href="./index.html">Home</a></li>
+            <li class="nav-item">
+                <a href="https://www.paypal.com/donate/?hosted_button_id=UQ83EASDKERUU&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWxvYmplY3RzLmNvbS9kb25hdGUvc2RrL2RvbmF0ZS1zZGsuanMiLCJhdHRycyI6eyJkYXRhLXVpZCI6IjNkNjhhNDZiZTNfbXRpNm1qcTZudHEifX0&targetMeta=eyJ6b2lkVmVyc2lvbiI6IjlfMF81OCIsInRhcmdldCI6IkRPTkFURSIsInNka1ZlcnNpb24iOiIwLjguMCJ9" target="_blank">
+                    Donate
+                </a>
+            </li>
+            <li class="nav-item"><a href="https://www.linktr.ee/wedgieanonymous" target="_blank">LinkTree</a></li>
+            <li class="nav-item"><a href="./contact.html" target="_blank">Contact</a></li>
+        </ul>
+        <ul class="nav-socials">
+            <li class="nav-social-item"><a href="https://www.instagram.com/wedgieanonymous" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
+            <li class="nav-social-item"><a href="https://www.twitter.com/wedgieanonymous" target="_blank"><i class="fa-brands fa-twitter"></i></a></li>
+            <li class="nav-social-item"><a href="https://www.youtube.com/channel/UCE8PNVNZ_eo4s85pDfhMbwA" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
+            <li class="nav-social-item"><a href="https://www.patreon.com/wedgieanonymous" target="_blank"><i class="fa-brands fa-patreon"></i></a></li>
+            <li class="nav-social-item">
+              <a href="https://www.onlyfans.com/wedgieanonymous" target="_blank">
+                <img src="onlyfans.svg" alt="OnlyFans" width="28" height="28">
+              </a>
+            </li>
+        </ul>
+        <div class="menu">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </nav>
+    
+    <script>
+        const menu = document.querySelector('.menu');
+        const nav = document.querySelector('nav');
+        const navList = document.querySelector('.nav-list');
+        const navItem = document.querySelectorAll('.nav-item');
+        const navSocials = document.querySelector('.nav-socials');
+        const logo = document.querySelector('.logo');
+
+        menu.addEventListener('click', function () {
+            logo.classList.toggle('mobile-menu');
+            nav.classList.toggle('mobile-menu');
+            navList.classList.toggle('mobile-menu');
+            navSocials.classList.toggle('mobile-menu');
+            navItem.forEach((navItem) => {
+                navItem.classList.toggle('mobile-menu');
+            });
+        });
+    </script>
+</body>
+</html>

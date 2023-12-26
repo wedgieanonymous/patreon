@@ -1,0 +1,24 @@
+function getAmount() {
+    var amountElement = document.getElementById('amount').value;
+    return amountElement;
+}
+
+paypal.Buttons({
+    createOrder: function (data, actions) {
+        return actions.order.create({
+            purchase_units: [
+                {
+                    amount: {
+                        value: getAmount(),
+                    },
+                },
+            ],
+        })
+    },
+    onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+            alert("Transaction completed by " + details.payer.name.given_name)
+        })
+    },
+})
+    .render("#paypal")
